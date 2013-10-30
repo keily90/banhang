@@ -1,0 +1,30 @@
+<h1 style="text-align:  center ;">Products</h1>
+<br/><br/><br/>
+<div class="masonry-container">
+  
+  <div class="col-sm-6 col-md-3">
+    
+    <% @products.each do |product| %>
+    
+    <div class="thumbnail" >
+      
+     <div class="image_home"><%= image_tag "products/" + product.get_image %></div>
+     
+      <div class="caption">
+       
+        <h3><%= link_to product.name, product %></h3>
+       
+        <p><%=  product.info %></p>
+        
+        <p> Giá: <%=  product.price %> VNĐ</p>
+        
+        <p> Số lượng còn lại:  <%=  product.quantity %></p>
+      </div>
+      
+    </div>
+    
+    <% end %>
+    
+  </div>
+  
+</div>

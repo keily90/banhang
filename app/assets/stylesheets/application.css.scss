@@ -1,0 +1,85 @@
+
+@import "bootstrap";
+
+/* -- customize --*/
+html, body {
+
+  height: 100%;
+}
+
+.container{
+  min-height: 94%;
+  clear:both;
+}
+
+.main {
+  overflow:auto;
+
+  padding-bottom:150px;
+ 
+
+}
+
+.image_product img{
+width:100px;
+height:auto;
+}
+
+
+/* -- header -- */
+.navbar{
+margin-bottom: 0px;
+}
+
+.form-group{
+margin-top:10px;
+display: inline-block;
+}
+
+
+
+.search 
+{
+float:right;
+}
+
+/* -- yeild -- */
+.field{
+display:inline-block;
+}
+
+
+.form-horizontal .control-label {
+float: left;
+width: 100px;
+padding-top: 5px;
+text-align: left;
+}
+
+.thumbnail{
+float:left;
+margin-left:10px;
+margin-top:20px;
+max-width:290px;
+}
+
+.image_home img
+{
+width:290px;
+height:200px;
+}
+#error_explanation{
+color:red;  
+}
+
+.field_with_errors{
+color:red; 
+}
+
+/* -- footer -- */
+footer{
+ height:40px;
+ margin-top:-40px;
+ float : right;
+}
+  
