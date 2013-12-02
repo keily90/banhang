@@ -14,6 +14,17 @@
        
         <h3><%= link_to product.name, product %></h3>
        
+        <h3 style="float:right;"> 
+        <%= form_tag('/cart', method: "post") do %>
+            
+                    
+            <%= hidden_field_tag(:productid, product.id) %>
+            <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+                <i class="icon-shopping-cart icon-white"></i>
+            <% end %>
+            <div class="number_cart"> <%= number_field_tag(:number, 0, :size => 3, :min => 0) %></div>    
+            <% end %>
+        </h3>
         <p><%=  product.info %></p>
         
         <p> Giá: <%=  product.price %> VNĐ</p>

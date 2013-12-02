@@ -1,7 +1,15 @@
 Banhang::Application.routes.draw do
   resources :products
-    match '/home',    to: 'products#home',  as: :home ,   via: 'get'
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+    match '/home',    to: 'products#home',  as: :home ,         via: 'get'
     match '/search',    to: 'products#search',  as: :search ,   via: 'get'
+    match '/signup',  to: 'users#new'                          ,via: 'get'
+    match '/signin',  to: 'sessions#new',                       via: 'get'
+    match '/signout', to: 'sessions#destroy',                   via: 'delete'
+    match '/cart', to: 'products#cart',  as: :cart ,         via: 'post'
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

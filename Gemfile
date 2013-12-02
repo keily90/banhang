@@ -46,7 +46,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 
 gem 'will_paginate', '~> 3.0'
 
-
+gem 'masonry-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -54,6 +54,8 @@ group :doc do
 end
 
 gem 'pry'
+
+gem 'dalli'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

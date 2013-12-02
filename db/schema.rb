@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131029064017) do
+ActiveRecord::Schema.define(version: 20131118092708) do
+
+  create_table "carts", force: true do |t|
+    t.integer  "userid"
+    t.integer  "productid"
+    t.integer  "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "name"
@@ -22,5 +30,18 @@ ActiveRecord::Schema.define(version: 20131029064017) do
     t.datetime "updated_at"
     t.string   "image"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.boolean  "admin",           default: false
+  end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

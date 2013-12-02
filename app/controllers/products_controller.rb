@@ -3,8 +3,27 @@ class ProductsController < ApplicationController
 
   # GET /products
   # GET /products.json
+  
+  def cart
+    
+    number = params[:number].to_i
+    productid = params[:productid].to_i
+    @cart = Cart.new(:userid => current_user.id,:productid => productid,:number => number)
+    @product = Product.find(productid)
+    if(@cart.save && (@product.quantity > number))
+       @product = Product.find(productid)
+       @product.quantity = @product.quantity - params[:number].to_i
+       @product.save
+       flash[:success] = 'Success shopping cart' 
+    else
+       flash[:error] = 'Quantity not enough' 
+    end
+    redirect_to home_path
+    
+  end
+  
   def home
-    @products = Product.find(:all ,:order => "name")
+    @products = Product.paginate(:page => params[:page], :per_page => 9,:order => "name") 
   end
   
   def search
